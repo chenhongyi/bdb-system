@@ -29,4 +29,3 @@ var Cookies = (function () {
     };
     return Cookies;
 }());
-//# sourceMappingURL=cookie.js.map

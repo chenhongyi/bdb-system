@@ -1,11 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-require("Require.js");
+require("jweixin-1.2.0.js");
 var JsSdk = (function () {
     function JsSdk() {
     }
     JsSdk.prototype.init = function () {
         //验证是否存在微信的js组件
+        //if (!wx) {
+        //}
     };
     //获取令牌
     JsSdk.prototype.get_token = function () {

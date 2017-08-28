@@ -1,10 +1,10 @@
 ﻿class Cookies {
-    private static access_token: string;   //微信token
-    private static access_token_update_time: number;   //token更新时间
+    private static access_token: string | null | undefined;   //微信token
+    private static access_token_update_time: number | null | undefined;   //token更新时间
 
 
-    private static ticket: string;         //微信ticket
-    private static ticket_update_time: number;         //ticket更新时间
+    private static ticket: string | null | undefined;         //微信ticket
+    private static ticket_update_time: number | null | undefined;         //ticket更新时间
 
     constructor() {
 
