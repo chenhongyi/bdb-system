@@ -9,6 +9,7 @@ namespace web.Data
     /// <summary>
     /// 车辆信息表
     /// </summary>
+    [Serializable()]
     public class CarInfo
     {
         [Key]
@@ -16,6 +17,27 @@ namespace web.Data
 
         [MaxLength(128)]
         public string UserId { get; set; }
+
+        /// <summary>
+        /// 信息标题
+        /// </summary>
+        [MaxLength(64)] public string Title { get; set; }
+
+        /// <summary>
+        /// 文字描述介绍
+        /// </summary>
+        [MaxLength(256)]
+        public string Desc { get; set; }
+
+        /// <summary>
+        /// 图片路径
+        /// </summary>
+        public byte[] ImagePath { get; set; }
+
+        /// <summary>
+        /// 视频路径
+        /// </summary>
+        public byte[] VideoPath { get; set; }
 
         /// <summary>
         /// 车辆类型
@@ -101,6 +123,8 @@ namespace web.Data
         /// 载重量多少吨以上
         /// </summary>
         大型拉粮卡车,
+
+        中型拉粮卡车,
 
         /// <summary>
         /// 载重量多少吨-多少吨

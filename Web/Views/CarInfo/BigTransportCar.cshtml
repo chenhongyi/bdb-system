@@ -1,0 +1,212 @@
+﻿@using  Web.Models.CarInfo
+@model  BigCarInfoViewModel
+@{
+    ViewData["Title"] = "大型运输车辆";
+
+    SelectListItem[] zoneList = {
+         new SelectListItem{ Value="f850",Text="八五零"},
+         new SelectListItem{ Value="f854",Text="八五四"},
+         new SelectListItem{ Value="f855",Text="八五五"},
+         new SelectListItem{ Value="f856",Text="八五六"},
+         new SelectListItem{ Value="f857",Text="八五七"},
+         new SelectListItem{ Value="f858",Text="八五八"},
+         new SelectListItem{ Value="f8511",Text="八五一一"},
+         new SelectListItem{ Value="xingkaihu",Text="兴凯湖"},
+         new SelectListItem{ Value="hulin",Text="虎林"},
+         new SelectListItem{ Value="mishan",Text="密山"},
+         new SelectListItem{ Value="guanju",Text="管局"},
+         new SelectListItem{ Value="jixi",Text="鸡西"},
+
+    };
+}
+
+
+
+
+
+
+<form asp-controller="IssueMsg" asp-action="Issue" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    上传照片  微信传图
+
+    上传视频 微信上传视频
+
+    <h2>发布大型运输车辆信息</h2>
+    <div class="form-group">
+        <label asp-for="Title" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Title" required="required" class="form-control" placeholder="请输入标题" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Price" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Price" required="required" class="form-control" type="number" pattern="[0-9]*" placeholder="请输入每公里单价" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="AreaRange" class="col-md-2 control-label"></label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="f850" value="@AreaRange.F850">八五零
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="f854" value="@AreaRange.F854">八五四
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="f855" value="@AreaRange.F855">八五五
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="f856" value="@AreaRange.F856">八五六
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="f857" value="@AreaRange.F857">八五七
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="f858" value="@AreaRange.F858">八五八
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="f8511" value="@AreaRange.F8511">八五一一
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="xingkaihu" value="@AreaRange.XingKaihu">兴凯湖
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="hulin" value="@AreaRange.HuLin">虎林
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="mishan" value="@AreaRange.MiShan">密山
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="guanju" value="@AreaRange.GuanJu">管局
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="jixi" value="@AreaRange.JiXi">鸡西
+        </label>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Desc" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <textarea asp-for="Desc" class="form-control" placeholder="请输入车辆描述信息" rows="5">
+            </textarea>
+            <span asp-validation-for="Desc" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="InZone" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select asp-for="InZone" asp-items="zoneList" class="form-control"></select>
+            <span asp-validation-for="InZone" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Phone" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Phone" required="required" class="form-control" id="phone" type="tel" placeholder="请输入手机号" />
+            <span asp-validation-for="Phone" class="text-danger"></span>
+            <input type="button" class="btn btn-default" id="btn" value="免费获取验证码" onclick="sendemail()" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="WeChatId" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="WeChatId" class="form-control" placeholder="请输入微信号" />
+            <span asp-validation-for="WeChatId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Name" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Name" required="required" class="form-control" placeholder="请输入姓名" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" id="issue" class="btn btn-default">立即发布</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script type="text/javascript">
+        var countdown=120;
+         function sendemail()
+        {
+            var obj = $("#btn");
+            var phone = $("#phone").val();  //获取phone的值
+            //进行phone检测
+            if(checkPhone(phone))
+            {
+                settime(obj);
+                $.get("/api/Common/Captcha",{phoneNumber:phone},
+                    function(returnData)
+                    {
+                      //返回值 判断
+                        switch(returnData){
+                            case 0:             //正常
+                                 alert("验证码已发送!");  break;
+                            case -2:      //传递参数为空
+                            case -1:      //不是有效手机号
+                                 alert("请输入正确的手机号码!"); break;
+                            case -3:      //短时间内发送验证码次数过多
+                                 alert("一段时间内发送验证码次数过多,请30分钟后重试!"); break;
+                        }
+                    }
+                );
+            }else
+            {
+                alert("请输入正确的手机号码");
+            }
+        }
+
+        //效验电话号码
+        function checkPhone(phone){
+            if(phone=="" || phone==="" || phone==undefined
+               || phone===undefined || phone == null || phone === null)
+            {
+                return false;
+            }
+            if(isMobil(phone))
+            {
+               return true;
+            }
+        }
+        //效验电话号码正则表达式
+        function isMobil(s)
+        {
+             var patrn=/^1(3|4|5|7|8)\d{9}$/;
+            if (!patrn.exec(s)) return false
+            return true
+        }
+
+        function settime(obj) { //发送验证码倒计时
+            if (countdown == 0) {
+                obj.attr('disabled',false);
+                //obj.removeattr("disabled");
+                obj.val("免费获取验证码");
+                countdown = 120;
+                return;
+            } else {
+                obj.attr('disabled',true);
+                obj.val("重新发送(" + countdown + ")");
+                countdown--;
+            }
+        setTimeout(function() {
+            settime(obj) }
+            ,1000)
+        }
+    </script>
+}

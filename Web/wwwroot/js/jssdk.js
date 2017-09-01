@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 require("jweixin-1.2.0.js");
 var JsSdk = (function () {
     function JsSdk() {
@@ -37,4 +37,3 @@ config.jsApiList = [
     "getLocation",
     "openLocation" //使用微信内置地图查看地理位置接口
 ]; //必填,需要使用的js接口列表,所有js接口列表见https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115
-//# sourceMappingURL=jssdk.js.map
