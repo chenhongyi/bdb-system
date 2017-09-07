@@ -1,0 +1,11 @@
+﻿@model web.Models.CarInfo.BigCarInfoViewModel
+@{
+    ViewData["Title"] = "车辆详情";
+}
+<h3>标题：@Model.Title</h3>
+<p class="lead">收费:@Model.Price</p>
+<p>详情介绍：@Model.Desc</p>
+<p>运输范围：@Model.AreaRange</p>
+<p>所在区域：@Model.InZone</p>
+<p>联系人姓名：@Model.Name</p>
+<p>联系电话：@Model.Phone</p>

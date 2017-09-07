@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace CommonService
+namespace web.Common
 {
     public class ConfigHelper
     { //Key：guid，Value：<QrCodeId,Version>

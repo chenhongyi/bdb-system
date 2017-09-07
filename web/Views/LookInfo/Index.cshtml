@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "查看车辆信息";
+}
+
+<div class="page">
+    <div class="page__bd page__bd_spacing">
+        @* 九宫格菜单开始 *@
+        <div class=" = page__hd">
+            @* page__hd页面 头部 *@
+            <h1 class="page__title">车辆分类</h1>   @* page__title 页面 头部 *@
+        </div>
+        <div class="weui-grids">
+            <a asp-controller="LookInfo" asp-action="BigTransportCarInfo" class="weui-grid">
+                <div class="weui-grid__label">
+                    <p>大型运输车</p>
+                </div>
+            </a>
+            @*<a asp-controller="Account" asp-action="Register" class="weui-grid">
+                <div class="weui-grid__label">
+                    <p>中型运输车</p>
+                </div>
+            </a>
+            <a asp-action="SmallTransportCar" class="weui-grid">
+                <div class="weui-grid__label">
+                    <p>小型运输车</p>
+                </div>
+            </a>
+            <a asp-action="TractorsCar" class="weui-grid">
+                <div class="weui-grid__label">
+                    <p>农用拖拉机</p>
+                </div>
+            </a>
+            <a asp-action="LogisticsCar" class="weui-grid">
+                <div class="weui-grid__label">
+                    <p>物流配货车</p>
+                </div>
+            </a>
+            <a asp-action="EngineeringCar" class="weui-grid">
+                <div class="weui-grid__label">
+                    <p>工程车</p>
+                </div>
+            </a>*@
+
+        </div>
+
+        @* 九宫格菜单开始结束 *@
+    </div>
+</div>
+
+@section Scripts {
+    @* 微信JSSDK *@
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    @* 微信JSSDK *@
+    <link href="~/lib/weui/dist/style/weui.css" rel="stylesheet" />
+}
+

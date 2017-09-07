@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using Microsoft.AspNetCore.Http;
-namespace CommonService
+namespace web.Common
 {
     public static class Server
     {

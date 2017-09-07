@@ -4,13 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Web.Models.Cache;
 using System.Net;
-using Web.Models;
 using System.IO;
 using Newtonsoft.Json;
+using web.Models.Cache;
+using web.Models;
 
-namespace Web.Controllers.Api
+namespace web.Controllers.Api
 {
     [Produces("application/json")]
     [Route("api/JsSdk/[action]")]

@@ -1,0 +1,17 @@
+﻿@using web.Models.CarInfo
+@model IEnumerable<BigCarInfoViewModel>
+@{
+    ViewData["Title"] = "大型车辆信息";
+}
+
+<table class="table">
+
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td><a asp-action="BigCarDetails" asp-route-id="@m.Id">@m.Title</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using web.Models.CarInfo;
 
 namespace web.Controllers
 {
@@ -23,7 +24,8 @@ namespace web.Controllers
         /// <returns></returns>
         public IActionResult BigTransportCar()
         {
-            return View();
+            BigCarInfoViewModel bm = new BigCarInfoViewModel();
+            return View(bm);
         }
 
         /// <summary>

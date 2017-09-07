@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 
 
-namespace CommonService
+namespace web.Common
 {
     public partial class CustomMessageHandler
     {

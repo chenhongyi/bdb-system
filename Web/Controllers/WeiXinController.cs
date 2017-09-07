@@ -4,18 +4,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using Senparc.Weixin.MP.Entities.Request;
 using Senparc.Weixin.MP;
-using Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using System.Text;
 using Senparc.Weixin;
-using CommonService;
 using Senparc.Weixin.MP.CoreMvcExtension;
+using web.Models;
+using web.Common;
 
-
-
-namespace Web.Controllers
+namespace web.Controllers
 {
     public class WeiXinController : Controller
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Web.Models.Cache
+namespace web.Models.Cache
 {
     public static class JsSdk
     {

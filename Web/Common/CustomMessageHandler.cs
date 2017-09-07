@@ -17,7 +17,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace CommonService
+namespace web.Common
 {    /// <summary>
      /// 自定义MessageHandler
      /// 把MessageHandler作为基类，重写对应请求的处理方法

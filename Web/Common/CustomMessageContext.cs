@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Senparc.Weixin.Context;
 using Senparc.Weixin.MP.Entities;
-namespace CommonService
+namespace web.Common
 {
 
     public class CustomMessageContext : MessageContext<IRequestMessageBase, IResponseMessageBase>

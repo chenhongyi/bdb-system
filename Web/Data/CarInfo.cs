@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using web.Models.CarInfo;
 
 namespace web.Data
 {
@@ -24,6 +26,11 @@ namespace web.Data
         [MaxLength(64)] public string Title { get; set; }
 
         /// <summary>
+        /// 价格 收费
+        /// </summary>
+        public double Price { get; set; }
+
+        /// <summary>
         /// 文字描述介绍
         /// </summary>
         [MaxLength(256)]
@@ -32,12 +39,12 @@ namespace web.Data
         /// <summary>
         /// 图片路径
         /// </summary>
-        public byte[] ImagePath { get; set; }
+        public string ImagePath { get; set; }
 
         /// <summary>
         /// 视频路径
         /// </summary>
-        public byte[] VideoPath { get; set; }
+        public string VideoPath { get; set; }
 
         /// <summary>
         /// 车辆类型
@@ -59,6 +66,15 @@ namespace web.Data
         /// </summary>
         public double LongSize { get; set; } = 0;
 
+        /// <summary>
+        /// 运输范围  1，2，3，4，5
+        /// </summary>
+        public string AreaRange { get; set; }
+
+        /// <summary>
+        /// 所在区域
+        /// </summary>
+        public int InZone { get; set; }
         /// <summary>
         /// 车宽
         /// </summary>
@@ -112,10 +128,49 @@ namespace web.Data
         [MaxLength(128)]
         [Display(Name = "雇主ID")]
         public string BossId { get; set; }
+
+        /// <summary>
+        /// 收录时间
+        /// </summary>
+        public long JoinTime { get; set; }
+
+        /// <summary>
+        /// 审核时间
+        /// </summary>
+        public long CheckTime { get; set; }
+
+        /// <summary>
+        /// 微信号
+        /// </summary>
+        //[MaxLength(32)] public string WeChatId { get; set; }
+
+        /// <summary>
+        /// 联系人姓名
+        /// </summary>
+        [MaxLength(8)] public string Name { get; set; }
+
+        /// <summary>
+        /// 联系人电话
+        /// </summary>
+        [MaxLength(11)] public string Phone { get; set; }
+
+        public static explicit operator CarInfo(BigCarInfoViewModel model)
+        {
+            return new CarInfo()
+            {
+                Title = model.Title,
+                Price = model.Price,
+                Desc = model.Desc,
+                AreaRange = model.AreaRange,
+                ImagePath = model.Image,
+                VideoPath = model.Video,
+                InZone = (int)model.InZone,
+                //WeChatId = model.WeChatId,
+                Name = model.Name,
+                Phone = model.Phone
+            };
+        }
     }
-
-
-
 
     public enum CarType
     {

@@ -23,6 +23,6 @@ namespace web.Data
             // Add your customizations after calling base.OnModelCreating(builder);
         }
 
-        public virtual DbSet<CarInfo> CarInfo { get; set; }
+        public virtual DbSet<CarInfo> Carinfo { get; set; }
     }
 }

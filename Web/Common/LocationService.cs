@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CommonService
+namespace web.Common
 {
     public class LocationService
     {

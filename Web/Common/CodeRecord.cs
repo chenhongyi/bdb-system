@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CommonService
+namespace web.Common
 {
     public class CodeRecord
 {
