@@ -7,14 +7,15 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 using web.Data;
-using web.Models;
+using web.Models.CarInfo;
 
 namespace web.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170911140251_a11")]
+    partial class a11
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -197,51 +198,6 @@ namespace web.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Carinfo");
-                });
-
-            modelBuilder.Entity("web.Data.ReapCarData", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("Brand");
-
-                    b.Property<int>("CarCount");
-
-                    b.Property<int>("CarStatus");
-
-                    b.Property<int>("CarType");
-
-                    b.Property<long>("CheckTime");
-
-                    b.Property<string>("Desc")
-                        .HasMaxLength(256);
-
-                    b.Property<int>("InZone");
-
-                    b.Property<long>("JoinTime");
-
-                    b.Property<double>("Land");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(8);
-
-                    b.Property<string>("Phone")
-                        .HasMaxLength(11);
-
-                    b.Property<double>("Price");
-
-                    b.Property<int>("ReapCarType");
-
-                    b.Property<string>("Title")
-                        .HasMaxLength(64);
-
-                    b.Property<string>("UserId")
-                        .HasMaxLength(128);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ReapCarData");
                 });
 
             modelBuilder.Entity("web.Models.ApplicationUser", b =>

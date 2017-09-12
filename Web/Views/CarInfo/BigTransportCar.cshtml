@@ -1,7 +1,8 @@
 ﻿@using  web.Models.CarInfo
+@using static web.Models.AllEnum
 @model  BigCarInfoViewModel
 @{
-    ViewData["Title"] = "大型运输车辆";
+    ViewData["Title"] = "运输车辆";
 }
 
 
@@ -16,7 +17,7 @@
 
     上传视频 微信上传视频*@
 
-    <h2>发布大型运输车辆信息</h2>
+    <h2 class="text-center">发布大型运输车辆信息</h2>
     <div class="form-group">
         <label asp-for="Title" class="col-md-2 control-label"></label>
         <div class="col-md-10">
@@ -33,6 +34,23 @@
             <span asp-validation-for="Price" class="text-danger"></span>
         </div>
     </div>
+
+    <div class="form-group">
+        <label asp-for="CarTypeIn" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select asp-for="CarTypeIn" asp-items="@Html.GetEnumSelectList<CarType>()" class="form-control"></select>
+            <span asp-validation-for="CarTypeIn" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LoadWeightOut" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select asp-for="LoadWeightOut" asp-items="@Html.GetEnumSelectList<LoadWeight>()" class="form-control"></select>
+            <span asp-validation-for="LoadWeightOut" class="text-danger"></span>
+        </div>
+    </div>
+
     <div class="form-group">
         <label asp-for="AreaRange" class="col-md-2 control-label"></label>
         <div class="col-md-10">
@@ -51,10 +69,10 @@
         </div>
     </div>
     <div class="form-group">
-        <label asp-for="InZone" class="col-md-2 control-label"></label>
+        <label asp-for="InZoneInt" class="col-md-2 control-label"></label>
         <div class="col-md-10">
-            <select asp-for="InZone" asp-items="@Html.GetEnumSelectList<InZone>()" class="form-control"></select>
-            <span asp-validation-for="InZone" class="text-danger"></span>
+            <select asp-for="InZoneInt" asp-items="@Html.GetEnumSelectList<InZone>()" class="form-control"></select>
+            <span asp-validation-for="InZoneInt" class="text-danger"></span>
         </div>
     </div>
     

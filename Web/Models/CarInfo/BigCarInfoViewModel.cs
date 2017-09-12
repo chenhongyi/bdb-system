@@ -1,34 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Senparc.Weixin.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using web.Data;
+using static web.Models.AllEnum;
 
 namespace web.Models.CarInfo
 {
-    public class BigCarInfoViewModel
+    public class BigCarInfoViewModel:CarBase
     {
-        /// <summary>
-        /// id
-        /// </summary>
-        public int Id { get; set; }
 
-        [Required(ErrorMessage = "请填写{0}")]
-        [Display(Name = "标题")]
-        [StringLength(64, ErrorMessage = "{1}长度应该介于{2}与{0}之间", MinimumLength = 2)]
-        public string Title { get; set; }
 
         [Display(Name = "运输范围")]
         public string AreaRange { get; set; }
-
-        [Required(ErrorMessage = "请填写{0}")]
-        [Display(Name = "价格")]
-        public double Price { get; set; }
-
-        [Display(Name = "描述")]
-        [StringLength(256, ErrorMessage = "{1}长度应该介于{2}与{0}之间", MinimumLength = 4)]
-        public string Desc { get; set; }
 
         [Display(Name = "照片")]
         public string Image { get; set; }
@@ -37,142 +24,166 @@ namespace web.Models.CarInfo
         public string Video { get; set; }
 
         [Display(Name = "所在地区")]
-        public InZone InZone { get; set; }
+        public string InZone { get; set; }
 
-        //[StringLength(32, ErrorMessage = "{1}长度应该介于{2}与{0}之间", MinimumLength = 4)]
-        //[Display(Name = "微信号")]
-        //public string WeChatId { get; set; }
+        [Display(Name = "所在地区")]
+        public int InZoneInt { get; set; }
 
-        [StringLength(8, ErrorMessage = "{1}长度应该介于{2}与{0}之间", MinimumLength = 2)]
-        [Display(Name = "联系人姓名")]
-        public string Name { get; set; }
+        /// <summary>
+        /// 车辆类型
+        /// </summary>
+        [Display(Name = "车型")]
+        public int CarTypeIn { get; set; }
 
-        [StringLength(11, ErrorMessage = "{1}长度应该介于{2}与{0}之间", MinimumLength = 11)]
-        [Display(Name = "联系人电话")]
-        public string Phone { get; set; }
+        /// <summary>
+        /// 吨位
+        /// </summary>
+        [Display(Name = "吨位")]
+        public string LoadWeightOut { get; set; }
 
-        public static explicit operator BigCarInfoViewModel(Data.CarInfo source)
+        [Display(Name = "吨位")]
+        public LoadWeight LoadWeightIn { get; set; }
+        /// <summary>
+        /// 车辆型号  侧翻 挂车 仓兰
+        /// </summary>
+        public string CarTypeOut { get; set; }
+
+
+
+        public static explicit operator BigCarInfoViewModel(Data.CarInfo data)
         {
+            var time = DateTimeHelper.GetDateTimeFromXml(data.JoinTime);
+            string areaRange = string.Empty;
+            string inZone = string.Empty;
+            string carType = string.Empty;
+            string weight = string.Empty;
+            switch ((LoadWeight)data.Weight)
+            {
+                case AllEnum.LoadWeight.W40:
+                    weight = "40吨以下";
+                    break;
+                case AllEnum.LoadWeight.W40T50:
+                    weight = "40到50吨";
+                    break;
+                case AllEnum.LoadWeight.W50T60:
+                    weight = "50到70吨";
+                    break;
+                case AllEnum.LoadWeight.W60T70:
+                    weight = "60到70吨";
+                    break;
+                case AllEnum.LoadWeight.W70:
+                    weight = "70吨往上";
+                    break;
+            }
+            switch (data.AreaRange)
+            {
+                case "0":
+                    areaRange = "牡丹江管局内";
+                    break;
+                case "1":
+                    areaRange = "黑龙江省内";
+                    break;
+                case "2":
+                    areaRange = "东三省";
+                    break;
+                case "3":
+                    areaRange = "全国";
+                    break;
+                case "4":
+                    areaRange = "八五六农场";
+                    break;
+            }
+            switch ((InZone)data.InZone)
+            {
+                case AllEnum.InZone.F850:
+                    inZone = "八五零农场";
+                    break;
+                case AllEnum.InZone.F854:
+                    inZone = "八五四农场";
+                    break;
+                case AllEnum.InZone.F855:
+                    inZone = "八五五农场";
+                    break;
+                case AllEnum.InZone.F856:
+                    inZone = "八五六农场";
+                    break;
+                case AllEnum.InZone.F857:
+                    inZone = "八五七农场";
+                    break;
+                case AllEnum.InZone.F858:
+                    inZone = "八五八农场";
+                    break;
+                case AllEnum.InZone.F8511:
+                    inZone = "八五一一农场";
+                    break;
+                case AllEnum.InZone.XingKaiHu:
+                    inZone = "兴凯湖农场";
+                    break;
+                case AllEnum.InZone.HuLin:
+                    inZone = "虎林市";
+                    break;
+                case AllEnum.InZone.MiShan:
+                    inZone = "密山市";
+                    break;
+                case AllEnum.InZone.GuanJu:
+                    inZone = "牡丹江管局";
+                    break;
+                case AllEnum.InZone.JiXi:
+                    inZone = "鸡西市";
+                    break;
+                default:
+                    inZone = "黑龙江省";
+                    break;
+            }
+            switch (data.CarType)
+            {
+                case AllEnum.CarType.侧翻:
+                    carType = "侧翻斗车";
+                    break;
+                case AllEnum.CarType.挂车:
+                    carType = "挂车";
+                    break;
+                case AllEnum.CarType.仓兰:
+                    carType = "仓兰";
+                    break;
+                case AllEnum.CarType.大型拉粮卡车:
+                    carType = "大型拉粮卡车";
+                    break;
+                case AllEnum.CarType.收割机:
+                    carType = "收割机";
+                    break;
+                case AllEnum.CarType.农用拖拉机:
+                    carType = "农用拖拉机";
+                    break;
+                case AllEnum.CarType.物流配货车:
+                    carType = "物流配货车";
+                    break;
+                case AllEnum.CarType.工程车辆:
+                    carType = "工程车辆";
+                    break;
+            }
             return new BigCarInfoViewModel()
             {
-                Id = source.Id,
-                AreaRange = source.AreaRange,
-                Desc = source.Desc,
-                Image = source.ImagePath ?? "",
-                InZone = (InZone)source.InZone,
-                Name = source.Name,
-                Phone = source.Phone,
-                Price = source.Price,
-                Title = source.Title,
-                Video = source.VideoPath ?? ""
+                Id = data.Id,
+                AreaRange = areaRange,
+                Desc = data.Desc,
+                Image = data.ImagePath ?? "",
+                InZone = inZone,
+                Name = data.Name,
+                Phone = data.Phone,
+                Price = data.Price,
+                Title = data.Title,
+                Video = data.VideoPath ?? "",
+                JoinTime = time,
+                LoadWeightOut = weight,
+                CarTypeOut = carType
             };
         }
-
     }
 
-    /// <summary>
-    /// 运输范围
-    /// </summary>
-    public enum AreaRange
-    {
-        [Display(Name = "牡丹江管局内")]
-        牡丹江管局内,
-        [Display(Name = "黑龙江省内")]
-        省内,
-        [Display(Name = "东三省")]
-        省外,
-        [Display(Name = "全国")]
-        全国,
-    }
 
-    ///// <summary>
-    ///// 运输范围
-    ///// </summary>
-    //public enum AreaRange
-    //{
-    //    /// <summary>
-    //    /// 850农场
-    //    /// </summary>
-    //    [Display(Name = "八五零")]
-    //    F850,
-    //    /// <summary>
-    //    /// 854农场
-    //    /// </summary>
-    //    [Display(Name = "八五四")]
-    //    F854,
-    //    /// <summary>
-    //    /// 855农场
-    //    /// </summary>
-    //    [Display(Name = "八五五")]
-    //    F855,
-    //    /// <summary>
-    //    /// 856农场
-    //    /// </summary>
-    //    [Display(Name = "八五六")]
-    //    F856,
-    //    /// <summary>
-    //    /// 857农场
-    //    /// </summary>
-    //    [Display(Name = "八五七")]
-    //    F857,
-    //    /// <summary>
-    //    /// 858农场
-    //    /// </summary>
-    //    [Display(Name = "八五八")]
-    //    F858,
-    //    /// <summary>
-    //    /// 8511农场
-    //    /// </summary>
-    //    [Display(Name = "八五一一")]
-    //    F8511,
-    //    /// <summary>
-    //    /// 兴凯湖
-    //    /// </summary>
-    //    [Display(Name = "兴凯湖")] XingKaihu,
-    //    /// <summary>
-    //    /// 虎林
-    //    /// </summary>
-    //    [Display(Name = "虎林")] HuLin,
-    //    /// <summary>
-    //    /// 密山
-    //    /// </summary>
-    //    [Display(Name = "密山")] MiShan,
-    //    /// <summary>
-    //    /// 管局
-    //    /// </summary>
-    //    [Display(Name = "管局")] GuanJu,
-    //    /// <summary>
-    //    /// 鸡西
-    //    /// </summary>
-    //    [Display(Name = "鸡西")] JiXi,
-    //}
 
-    public enum InZone
-    {
-        [Display(Name = "八五零")]
-        F850,
-        [Display(Name = "八五四")]
-        F854,
-        [Display(Name = "八五五")]
-        F855,
-        [Display(Name = "八五六")]
-        F856,
-        [Display(Name = "八五七")]
-        F857,
-        [Display(Name = "八五八")]
-        F858,
-        [Display(Name = "八五一一")]
-        F8511,
-        [Display(Name = "兴凯湖")]
-        XingKaiHu,
-        [Display(Name = "虎林")]
-        HuLin,
-        [Display(Name = "密山")]
-        MiShan,
-        [Display(Name = "管局")]
-        GuanJu,
-        [Display(Name = "鸡西")]
-        JiXi,
-    }
+
+
 
 }

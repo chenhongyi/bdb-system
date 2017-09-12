@@ -1,9 +1,10 @@
 ﻿
 @{
-    ViewData["Title"] = "发布车辆信息";
+    ViewData["Title"] = "收割用车信息";
 }
 
-@* 导航  按钮  分类 *@
+<h2>收割用车信息</h2>
+
 
 <div class="page">
     <div class="page__bd page__bd_spacing">
@@ -12,28 +13,17 @@
             <h1 class="page__title">车辆分类</h1>   @* page__title 页面 头部 *@
         </div>
         <div class="weui-grids">
-            <a asp-action="BigTransportCar" class="weui-grid">
+            <a asp-action="HireReapCar" class="weui-grid">
                 <div class="weui-grid__label">
-                    <p>运输车辆信息</p>
+                    <p>雇佣收割车辆</p>
                 </div>
             </a>
-            <a asp-controller="SendBuyCar"  class="weui-grid">
+            <a asp-action="TaxiReapCar"  class="weui-grid">
                 <div class="weui-grid__label">
-                    <p>求购车辆信息</p>
-                </div>
-            </a>
-            <a asp-action="SendSellCar" class="weui-grid">
-                <div class="weui-grid__label">
-                    <p>出售车辆信息</p>
-                </div>
-            </a>
-            <a asp-action="ReapCar" class="weui-grid">
-                <div class="weui-grid__label">
-                    <p>收割用车信息</p>
+                    <p>出租收割车辆</p>
                 </div>
             </a>
         </div>
-
         @* 九宫格菜单开始结束 *@
     </div>
 </div>
@@ -46,5 +36,5 @@
     <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     @* 微信JSSDK *@
     <link href="~/lib/weui/dist/style/weui.css" rel="stylesheet" />
- }
+}
 

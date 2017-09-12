@@ -29,52 +29,42 @@ namespace web.Controllers
         }
 
         /// <summary>
-        /// 中型车辆
+        /// 收割车辆
         /// </summary>
         /// <returns></returns>
-        public IActionResult MiddleTransportCar()
+        public IActionResult ReapCar()
         {
             return View();
         }
 
         /// <summary>
-        /// 小型车辆
+        /// 雇佣收割车辆
         /// </summary>
         /// <returns></returns>
-        public IActionResult SmallTransportCar()
-        {
-            return View();
-        }
-
-
-        /// <summary>
-        /// 拖拉机，牵引车辆
-        /// </summary>
-        /// <returns></returns>
-        public IActionResult TractorsCar()
-        {
-            return View();
-        }
-
-        /// <summary>
-        /// 物流车辆
-        /// </summary>
-        /// <returns></returns>
-        public IActionResult LogisticsCar()
+        public IActionResult HireReapCar()
         {
             return View();
         }
 
 
         /// <summary>
-        /// 工程车辆
+        /// 雇佣收割车辆
         /// </summary>
         /// <returns></returns>
-        public IActionResult EngineeringCar()
+        [HttpPost]
+        public IActionResult HireReapCar(ReapCarViewModel model)
         {
             return View();
         }
-        
+
+        /// <summary>
+        /// 出租收割车辆
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult TaxiReapCar()
+        {
+            return View();
+        }
 
     }
 }

@@ -1,0 +1,106 @@
+﻿@using web.Models.CarInfo
+@using static web.Models.AllEnum
+@model ReapCarViewModel
+@{
+    ViewData["Title"] = "发布雇佣收割车辆信息";
+}
+
+
+<form asp-controller="CarInfo" asp-action="HireReapCar" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    @*上传照片  微信传图
+
+        上传视频 微信上传视频*@
+
+    <h2 class="text-center">发布雇佣收割车辆信息</h2>
+    <div class="form-group">
+        <label asp-for="Title" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Title" required="required" class="form-control" placeholder="请输入标题" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Price" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Price" required="required" class="form-control" type="number" pattern="[0-9]*" placeholder="请输入每亩地价格" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Land" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Land" required="required" class="form-control" type="number" pattern="[0-9]*" placeholder="请输入一共多少亩地待收" />
+            <span asp-validation-for="Land" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Brand" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select asp-for="Brand" asp-items="@Html.GetEnumSelectList<Brand>()" class="form-control"></select>
+            <span asp-validation-for="Brand" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ReapCarType" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select asp-for="ReapCarType" asp-items="@Html.GetEnumSelectList<ReapCarType>()" class="form-control"></select>
+            <span asp-validation-for="ReapCarType" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="InZoneInt" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select asp-for="InZoneInt" asp-items="@Html.GetEnumSelectList<InZone>()" class="form-control"></select>
+            <span asp-validation-for="InZoneInt" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CarCount" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="CarCount" required="required" class="form-control" type="number" pattern="[0-9]*" placeholder="请输入需求车辆数量" />
+            <span asp-validation-for="CarCount" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Desc" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <textarea asp-for="Desc" class="form-control" placeholder="请输入描述信息" rows="5">
+            </textarea>
+            <span asp-validation-for="Desc" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Name" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Name" required="required" class="form-control" placeholder="请输入姓名" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Phone" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Phone" required="required" class="form-control" id="phone" type="tel" placeholder="请输入手机号" />
+            <span asp-validation-for="Phone" class="text-danger"></span>
+            <input type="button" class="btn btn-default" id="btn" value="免费获取验证码" onclick="sendCaptcha()" />
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" id="issue" class="btn btn-default">立即发布</button>
+        </div>
+    </div>
+</form>
+

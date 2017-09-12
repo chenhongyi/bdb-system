@@ -10,7 +10,8 @@
         @foreach (var m in Model)
         {
             <tr>
-                <td><a asp-action="BigCarDetails" asp-route-id="@m.Id">@m.Title</a></td>
+                <td><a asp-action="BigCarDetails" class="text-info" asp-route-id="@m.Id">@m.Title</a></td>
+                <td><label class="text-info">@m.JoinTime.ToString("yyyy/MM/dd hh:mm")</label></td>
             </tr>
         }
     </tbody>

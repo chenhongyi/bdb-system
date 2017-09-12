@@ -24,5 +24,7 @@ namespace web.Data
         }
 
         public virtual DbSet<CarInfo> Carinfo { get; set; }
+
+        public virtual DbSet<ReapCarData> ReapCarData { get; set; }
     }
 }
