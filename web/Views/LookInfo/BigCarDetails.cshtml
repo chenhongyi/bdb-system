@@ -3,32 +3,35 @@
     ViewData["Title"] = "车辆详情";
 }
 
-<div class="row">
-    <dl>
-        <dt class="col-md-12 text-center" style="font-size:30px;">@Model.Title</dt>
+@if (Model != null)
+{
+    <div class="row">
+        <dl>
+            <dt class="col-md-12 text-center" style="font-size:30px;">@Model.Title</dt>
 
-        <dt class="col-md-2">收费:</dt>
-        <dd class="col-md-10">@Model.Price</dd>
+            <dt class="col-md-2">收费:</dt>
+            <dd class="col-md-10">@Model.Price</dd>
 
-        <dt class="col-md-2">车型:</dt>
-        <dd class="col-md-10">@Model.CarTypeOut</dd>
+            <dt class="col-md-2">车型:</dt>
+            <dd class="col-md-10">@Model.CarTypeOut</dd>
 
-        <dt class="col-md-2">吨位</dt>
-        <dd class="col-md-10">@Model.LoadWeightOut</dd>
+            <dt class="col-md-2">吨位</dt>
+            <dd class="col-md-10">@Model.LoadWeightOut</dd>
 
-        <dt class="col-md-2">详情介绍:</dt>
-        <dd class="col-md-10">@Model.Desc</dd>
+            <dt class="col-md-2">详情介绍:</dt>
+            <dd class="col-md-10">@Model.Desc</dd>
 
-        <dt class="col-md-2">运输范围:</dt>
-        <dd class="col-md-10">@Model.AreaRange</dd>
+            <dt class="col-md-2">运输范围:</dt>
+            <dd class="col-md-10">@Model.AreaRange</dd>
 
-        <dt class="col-md-2">所在区域:</dt>
-        <dd class="col-md-10">@Model.InZone</dd>
+            <dt class="col-md-2">所在区域:</dt>
+            <dd class="col-md-10">@Model.InZoneViewModel</dd>
 
-        <dt class="col-md-2">联系人姓名:</dt>
-        <dd class="col-md-10">@Model.Name</dd>
+            <dt class="col-md-2">联系人姓名:</dt>
+            <dd class="col-md-10">@Model.Name</dd>
 
-        <dt class="col-md-2">联系电话:</dt>
-        <dd class="col-md-10">@Model.Phone</dd>
-    </dl>
-</div>
+            <dt class="col-md-2">联系电话:</dt>
+            <dd class="col-md-10">@Model.Phone</dd>
+        </dl>
+    </div>
+}

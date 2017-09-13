@@ -9,7 +9,7 @@
     <div class="page__bd page__bd_spacing">
         @* 九宫格菜单开始 *@
         <div class=" = page__hd">
-            <h1 class="page__title">车辆分类</h1>   @* page__title 页面 头部 *@
+            <h1 class="page__title">发布车辆信息分类</h1>   @* page__title 页面 头部 *@
         </div>
         <div class="weui-grids">
             <a asp-action="BigTransportCar" class="weui-grid">
@@ -17,7 +17,7 @@
                     <p>运输车辆信息</p>
                 </div>
             </a>
-            <a asp-controller="SendBuyCar"  class="weui-grid">
+            <a asp-action="SendBuyCar"  class="weui-grid">
                 <div class="weui-grid__label">
                     <p>求购车辆信息</p>
                 </div>
@@ -27,11 +27,11 @@
                     <p>出售车辆信息</p>
                 </div>
             </a>
-            <a asp-action="ReapCar" class="weui-grid">
+            @*<a asp-action="ReapCar" class="weui-grid">
                 <div class="weui-grid__label">
                     <p>收割用车信息</p>
                 </div>
-            </a>
+            </a>*@
         </div>
 
         @* 九宫格菜单开始结束 *@

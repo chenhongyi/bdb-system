@@ -1,0 +1,44 @@
+﻿@model web.Models.CarInfo.DealCarViewModel
+@{
+    ViewData["Title"] = "买车信息详情";
+}
+
+
+@if (Model != null)
+{
+    <div class="row">
+        <dl>
+            <dt class="col-md-12 text-center" style="font-size:30px;">@Model.Title</dt>
+
+            <dt class="col-md-2">价格:</dt>
+            <dd class="col-md-10">@Model.Price</dd>
+
+            <dt class="col-md-2">品牌:</dt>
+            <dd class="col-md-10">@Model.BrandViewModel</dd>
+
+            <dt class="col-md-2">公里数</dt>
+            <dd class="col-md-10">@Model.RunRoadCount</dd>
+
+            <dt class="col-md-2">自动手动:</dt>
+            <dd class="col-md-10">@Model.Auto</dd>
+
+            <dt class="col-md-2">手续:</dt>
+            <dd class="col-md-10">@Model.Procedure</dd>
+
+            <dt class="col-md-2">几年内的车:</dt>
+            <dd class="col-md-10">@Model.Years</dd>
+
+            <dt class="col-md-2">详情介绍:</dt>
+            <dd class="col-md-10">@Model.Desc</dd>
+
+            <dt class="col-md-2">所在区域:</dt>
+            <dd class="col-md-10">@Model.InZone</dd>
+
+            <dt class="col-md-2">联系人姓名:</dt>
+            <dd class="col-md-10">@Model.Name</dd>
+
+            <dt class="col-md-2">联系电话:</dt>
+            <dd class="col-md-10">@Model.Phone</dd>
+        </dl>
+    </div>
+}

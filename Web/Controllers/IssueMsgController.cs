@@ -58,13 +58,27 @@ namespace web.Controllers
                 //1.数据转换
                 var dbModel = (CarInfo)model;
                 dbModel.JoinTime = DateTimeHelper.GetWeixinDateTime(DateTime.Now);
-         
+
                 //2.写入数据库
                 _db.Carinfo.Add(dbModel);
                 _db.SaveChanges();
                 return RedirectToLocal(returnUrl);
             }
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult SendCerealsBossInfo(string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult SendCarBossInfo(string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            return View();
         }
 
         private IActionResult RedirectToLocal(string returnUrl)
@@ -75,7 +89,7 @@ namespace web.Controllers
             }
             else
             {
-                return RedirectToAction(nameof(HomeController.Index), "Home");
+                return RedirectToAction(nameof(CarInfoController.Index), "CarInfo");
             }
         }
     }

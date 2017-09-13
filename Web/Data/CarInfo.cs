@@ -13,7 +13,7 @@ namespace web.Data
     /// 车辆信息表
     /// </summary>
     [Serializable()]
-    public class CarInfo : CarBaseData
+    public class CarInfo : BaseData
     {
         /// <summary>
         /// 图片路径
@@ -118,7 +118,7 @@ namespace web.Data
                 AreaRange = model.AreaRange,
                 ImagePath = model.Image,
                 VideoPath = model.Video,
-                InZone = model.InZoneInt,
+                InZone = model.InZone,
                 //WeChatId = model.WeChatId,
                 Name = model.Name,
                 Phone = model.Phone,

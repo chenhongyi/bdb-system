@@ -11,29 +11,29 @@ namespace web.Models
         public enum InZone
         {
             [Display(Name = "八五零")]
-            F850,
+            八五零,
             [Display(Name = "八五四")]
-            F854,
+            八五四,
             [Display(Name = "八五五")]
-            F855,
+            八五五,
             [Display(Name = "八五六")]
-            F856,
+            八五六,
             [Display(Name = "八五七")]
-            F857,
+            八五七,
             [Display(Name = "八五八")]
-            F858,
+            八五八,
             [Display(Name = "八五一一")]
-            F8511,
+            八五一一,
             [Display(Name = "兴凯湖")]
-            XingKaiHu,
+            兴凯湖,
             [Display(Name = "虎林")]
-            HuLin,
+            虎林,
             [Display(Name = "密山")]
-            MiShan,
+            密山,
             [Display(Name = "管局")]
-            GuanJu,
+            管局,
             [Display(Name = "鸡西")]
-            JiXi,
+            鸡西,
         }
 
         public enum LoadWeight
@@ -318,7 +318,70 @@ namespace web.Models
         {
             久保田,
         }
+
+        public enum CarBrand
+        {
+            手动填写,
+            大众,
+            本田,
+            奥迪,
+            奔驰,
+            宝马,
+            凯迪拉克,
+            克莱斯勒,
+            福特,
+            雪佛兰,
+            别克,
+            丰田
+        }
+
+        /// <summary>
+        /// 车辆手续
+        /// </summary>
+        public enum Procedure
+        {
+            [Display(Name = "有")]
+            有,
+            [Display(Name = "无")]
+            无,
+        }
+
+        public enum Auto
+        {
+            [Display(Name = "自动")]
+            自动,
+            [Display(Name = "手动")]
+            手动,
+        }
+
+        /// <summary>
+        /// 买车还是卖车
+        /// </summary>
+        public enum BuyOrSell
+        {
+            [Display(Name = "买")]
+            买,
+            [Display(Name = "卖")]
+            卖,
+        }
+
+        /// <summary>
+        /// 粮食类型
+        /// </summary>
+        public enum CerealsType
+        {
+            苞米,
+            水稻,
+            小麦,
+            大麦,
+            西瓜,
+            其他农作物
+        }
+
+        public enum BossType
+        {
+            车主,
+            货主,
+        }
     }
-
-
 }

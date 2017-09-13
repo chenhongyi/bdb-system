@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace web.Models
 {
-    public class CarBase
+    public class ViewModelBase
     {
         /// <summary>
         /// id

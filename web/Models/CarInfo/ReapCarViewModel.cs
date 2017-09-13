@@ -8,7 +8,7 @@ using static web.Models.AllEnum;
 
 namespace web.Models.CarInfo
 {
-    public class ReapCarViewModel : CarBase
+    public class ReapCarViewModel : ViewModelBase
     {
         /// <summary>
         /// 车辆型号
@@ -75,40 +75,40 @@ namespace web.Models.CarInfo
 
             switch ((InZone)data.InZone)
             {
-                case AllEnum.InZone.F850:
+                case AllEnum.InZone.八五零:
                     inZone = "八五零农场";
                     break;
-                case AllEnum.InZone.F854:
+                case AllEnum.InZone.八五四:
                     inZone = "八五四农场";
                     break;
-                case AllEnum.InZone.F855:
+                case AllEnum.InZone.八五五:
                     inZone = "八五五农场";
                     break;
-                case AllEnum.InZone.F856:
+                case AllEnum.InZone.八五六:
                     inZone = "八五六农场";
                     break;
-                case AllEnum.InZone.F857:
+                case AllEnum.InZone.八五七:
                     inZone = "八五七农场";
                     break;
-                case AllEnum.InZone.F858:
+                case AllEnum.InZone.八五八:
                     inZone = "八五八农场";
                     break;
-                case AllEnum.InZone.F8511:
+                case AllEnum.InZone.八五一一:
                     inZone = "八五一一农场";
                     break;
-                case AllEnum.InZone.XingKaiHu:
+                case AllEnum.InZone.兴凯湖:
                     inZone = "兴凯湖农场";
                     break;
-                case AllEnum.InZone.HuLin:
+                case AllEnum.InZone.虎林:
                     inZone = "虎林市";
                     break;
-                case AllEnum.InZone.MiShan:
+                case AllEnum.InZone.密山:
                     inZone = "密山市";
                     break;
-                case AllEnum.InZone.GuanJu:
+                case AllEnum.InZone.管局:
                     inZone = "牡丹江管局";
                     break;
-                case AllEnum.InZone.JiXi:
+                case AllEnum.InZone.鸡西:
                     inZone = "鸡西市";
                     break;
                 default:

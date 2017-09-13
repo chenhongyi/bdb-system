@@ -8,7 +8,7 @@ using static web.Models.AllEnum;
 namespace web.Data
 {
     [Serializable()]
-    public class ReapCarData : CarBaseData
+    public class ReapCarData : BaseData
     {
         /// <summary>
         /// 品牌

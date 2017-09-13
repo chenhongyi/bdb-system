@@ -10,7 +10,7 @@ using static web.Models.AllEnum;
 
 namespace web.Models.CarInfo
 {
-    public class BigCarInfoViewModel:CarBase
+    public class BigCarInfoViewModel : ViewModelBase
     {
 
 
@@ -24,10 +24,10 @@ namespace web.Models.CarInfo
         public string Video { get; set; }
 
         [Display(Name = "所在地区")]
-        public string InZone { get; set; }
+        public InZone InZone { get; set; }
 
         [Display(Name = "所在地区")]
-        public int InZoneInt { get; set; }
+        public string InZoneViewModel { get; set; }
 
         /// <summary>
         /// 车辆类型
@@ -93,42 +93,42 @@ namespace web.Models.CarInfo
                     areaRange = "八五六农场";
                     break;
             }
-            switch ((InZone)data.InZone)
+            switch (data.InZone)
             {
-                case AllEnum.InZone.F850:
+                case AllEnum.InZone.八五零:
                     inZone = "八五零农场";
                     break;
-                case AllEnum.InZone.F854:
+                case AllEnum.InZone.八五四:
                     inZone = "八五四农场";
                     break;
-                case AllEnum.InZone.F855:
+                case AllEnum.InZone.八五五:
                     inZone = "八五五农场";
                     break;
-                case AllEnum.InZone.F856:
+                case AllEnum.InZone.八五六:
                     inZone = "八五六农场";
                     break;
-                case AllEnum.InZone.F857:
+                case AllEnum.InZone.八五七:
                     inZone = "八五七农场";
                     break;
-                case AllEnum.InZone.F858:
+                case AllEnum.InZone.八五八:
                     inZone = "八五八农场";
                     break;
-                case AllEnum.InZone.F8511:
+                case AllEnum.InZone.八五一一:
                     inZone = "八五一一农场";
                     break;
-                case AllEnum.InZone.XingKaiHu:
+                case AllEnum.InZone.兴凯湖:
                     inZone = "兴凯湖农场";
                     break;
-                case AllEnum.InZone.HuLin:
+                case AllEnum.InZone.虎林:
                     inZone = "虎林市";
                     break;
-                case AllEnum.InZone.MiShan:
+                case AllEnum.InZone.密山:
                     inZone = "密山市";
                     break;
-                case AllEnum.InZone.GuanJu:
+                case AllEnum.InZone.管局:
                     inZone = "牡丹江管局";
                     break;
-                case AllEnum.InZone.JiXi:
+                case AllEnum.InZone.鸡西:
                     inZone = "鸡西市";
                     break;
                 default:
@@ -168,7 +168,7 @@ namespace web.Models.CarInfo
                 AreaRange = areaRange,
                 Desc = data.Desc,
                 Image = data.ImagePath ?? "",
-                InZone = inZone,
+                InZoneViewModel = inZone,
                 Name = data.Name,
                 Phone = data.Phone,
                 Price = data.Price,

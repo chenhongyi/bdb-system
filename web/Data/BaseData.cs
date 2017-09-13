@@ -8,7 +8,7 @@ using static web.Models.AllEnum;
 namespace web.Data
 {
     [Serializable()]
-    public class CarBaseData
+    public class BaseData
     {
         [Key]
         public int Id { get; set; }
@@ -21,7 +21,7 @@ namespace web.Data
         /// <summary>
         /// 价格 收费
         /// </summary>
-        public double Price { get; set; }
+        public double Price { get; set; } = 0;
         /// <summary>
         /// 文字描述介绍
         /// </summary>
@@ -30,7 +30,7 @@ namespace web.Data
         /// <summary>
         /// 所在区域
         /// </summary>
-        public int InZone { get; set; }
+        public InZone InZone { get; set; } = InZone.八五零;
         /// <summary>
         /// 车辆状态
         /// </summary>
