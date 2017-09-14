@@ -12,9 +12,10 @@ using web.Models;
 namespace web.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170914023529_a1111")]
+    partial class a1111
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -304,109 +305,6 @@ namespace web.Data.Migrations
                     b.ToTable("DealCarData");
                 });
 
-            modelBuilder.Entity("web.Data.DriverData", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("BigCarType");
-
-                    b.Property<int>("CarStatus");
-
-                    b.Property<int>("CarType");
-
-                    b.Property<long>("CheckTime");
-
-                    b.Property<string>("Desc")
-                        .HasMaxLength(256);
-
-                    b.Property<int>("DriverCarType");
-
-                    b.Property<int>("DriverCardType");
-
-                    b.Property<int>("DriverYears");
-
-                    b.Property<int>("Gender");
-
-                    b.Property<int>("InZone");
-
-                    b.Property<long>("JoinTime");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(8);
-
-                    b.Property<string>("Phone")
-                        .HasMaxLength(11);
-
-                    b.Property<double>("Price");
-
-                    b.Property<string>("Title")
-                        .HasMaxLength(64);
-
-                    b.Property<int>("TljDriverCardType");
-
-                    b.Property<string>("UserId")
-                        .HasMaxLength(128);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("DriverData");
-                });
-
-            modelBuilder.Entity("web.Data.HireData", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("AgeRequired");
-
-                    b.Property<int>("CarStatus");
-
-                    b.Property<int>("CarType");
-
-                    b.Property<long>("CheckTime");
-
-                    b.Property<string>("Desc")
-                        .HasMaxLength(256);
-
-                    b.Property<int>("GenderRequired");
-
-                    b.Property<int>("InZone");
-
-                    b.Property<long>("JoinTime");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(8);
-
-                    b.Property<int>("PayType");
-
-                    b.Property<int>("PersonCount");
-
-                    b.Property<string>("Phone")
-                        .HasMaxLength(11);
-
-                    b.Property<double>("Price");
-
-                    b.Property<long>("StartTime");
-
-                    b.Property<string>("Title")
-                        .HasMaxLength(64);
-
-                    b.Property<string>("UserId")
-                        .HasMaxLength(128);
-
-                    b.Property<int>("WorkStrong");
-
-                    b.Property<string>("WorkTime")
-                        .HasMaxLength(32);
-
-                    b.Property<int>("WorkType");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("HireData");
-                });
-
             modelBuilder.Entity("web.Data.ReapCarData", b =>
                 {
                     b.Property<int>("Id")
@@ -450,56 +348,6 @@ namespace web.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ReapCarData");
-                });
-
-            modelBuilder.Entity("web.Data.ResumeData", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<long>("BirthDay");
-
-                    b.Property<int>("CarStatus");
-
-                    b.Property<int>("CarType");
-
-                    b.Property<long>("CheckTime");
-
-                    b.Property<string>("CurPoint")
-                        .HasMaxLength(128);
-
-                    b.Property<string>("Desc")
-                        .HasMaxLength(256);
-
-                    b.Property<int>("Gender");
-
-                    b.Property<int>("InZone");
-
-                    b.Property<string>("JiGuan")
-                        .HasMaxLength(128);
-
-                    b.Property<long>("JoinTime");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(8);
-
-                    b.Property<string>("Phone")
-                        .HasMaxLength(11);
-
-                    b.Property<double>("Price");
-
-                    b.Property<string>("Title")
-                        .HasMaxLength(64);
-
-                    b.Property<string>("UserId")
-                        .HasMaxLength(128);
-
-                    b.Property<string>("WorkPoint")
-                        .HasMaxLength(32);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ResumeData");
                 });
 
             modelBuilder.Entity("web.Models.ApplicationUser", b =>

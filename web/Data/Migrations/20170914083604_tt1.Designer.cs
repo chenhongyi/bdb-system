@@ -12,9 +12,10 @@ using web.Models;
 namespace web.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170914083604_tt1")]
+    partial class tt1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -304,55 +305,6 @@ namespace web.Data.Migrations
                     b.ToTable("DealCarData");
                 });
 
-            modelBuilder.Entity("web.Data.DriverData", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("BigCarType");
-
-                    b.Property<int>("CarStatus");
-
-                    b.Property<int>("CarType");
-
-                    b.Property<long>("CheckTime");
-
-                    b.Property<string>("Desc")
-                        .HasMaxLength(256);
-
-                    b.Property<int>("DriverCarType");
-
-                    b.Property<int>("DriverCardType");
-
-                    b.Property<int>("DriverYears");
-
-                    b.Property<int>("Gender");
-
-                    b.Property<int>("InZone");
-
-                    b.Property<long>("JoinTime");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(8);
-
-                    b.Property<string>("Phone")
-                        .HasMaxLength(11);
-
-                    b.Property<double>("Price");
-
-                    b.Property<string>("Title")
-                        .HasMaxLength(64);
-
-                    b.Property<int>("TljDriverCardType");
-
-                    b.Property<string>("UserId")
-                        .HasMaxLength(128);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("DriverData");
-                });
-
             modelBuilder.Entity("web.Data.HireData", b =>
                 {
                     b.Property<int>("Id")
@@ -472,6 +424,9 @@ namespace web.Data.Migrations
                         .HasMaxLength(256);
 
                     b.Property<int>("Gender");
+
+                    b.Property<string>("GoodJob")
+                        .HasMaxLength(32);
 
                     b.Property<int>("InZone");
 

@@ -303,12 +303,9 @@ namespace web.Models
         /// </summary>
         public enum ReapCarStatus
         {
-            [Display(Name = "空闲")]
-            Free,
-            [Display(Name = "工作中")]
-            Working,
-            [Display(Name = "休息")]
-            Closed,
+            空闲,
+            工作中,
+            休息,
         }
 
         /// <summary>
@@ -319,6 +316,9 @@ namespace web.Models
             久保田,
         }
 
+        /// <summary>
+        /// 车辆品牌
+        /// </summary>
         public enum CarBrand
         {
             手动填写,
@@ -340,17 +340,13 @@ namespace web.Models
         /// </summary>
         public enum Procedure
         {
-            [Display(Name = "有")]
             有,
-            [Display(Name = "无")]
             无,
         }
 
         public enum Auto
         {
-            [Display(Name = "自动")]
             自动,
-            [Display(Name = "手动")]
             手动,
         }
 
@@ -359,9 +355,7 @@ namespace web.Models
         /// </summary>
         public enum BuyOrSell
         {
-            [Display(Name = "买")]
             买,
-            [Display(Name = "卖")]
             卖,
         }
 
@@ -382,6 +376,111 @@ namespace web.Models
         {
             车主,
             货主,
+        }
+
+        /// <summary>
+        /// 工作类型
+        /// </summary>
+        public enum WorkType
+        {
+            短工,
+            长工,
+            插秧,
+            翻地,
+            开车,
+            拉粮,
+            扣大棚
+        }
+
+        /// <summary>
+        /// 性别要求
+        /// </summary>
+        public enum GenderRequired
+        {
+            男,
+            女,
+            男女不限
+        }
+
+        /// <summary>
+        /// 性别
+        /// </summary>
+        public enum Gender
+        {
+            男,
+            女
+        }
+
+        /// <summary>
+        /// 年龄
+        /// </summary>
+        public enum AgeRequired
+        {
+            三十岁以下,
+            四十岁以下,
+            五十岁以下,
+            六十岁以下,
+            不限
+        }
+
+        /// <summary>
+        /// 工作强度
+        /// </summary>
+        public enum WorkStrong
+        {
+            轻松,
+            一般,
+            很累
+        }
+
+        /// <summary>
+        /// 结算方式
+        /// </summary>
+        public enum PayType
+        {
+            日结,
+            月结
+        }
+
+        public enum DriverCarType
+        {
+            司机找车,
+            车找司机
+        }
+
+        /// <summary>
+        /// 驾照类型
+        /// </summary>
+        public enum DriverCardType
+        {
+            C1,
+            C2,
+            B1,
+            B2,
+            A1,
+            A2,
+            A3,
+            无照
+        }
+
+        /// <summary>
+        /// 拖拉机驾驶照类型
+        /// </summary>
+        public enum TljDriverCardType
+        {
+            G,
+            H,
+            K
+        }
+
+        /// <summary>
+        /// 大车车型
+        /// </summary>
+        public enum BigCarType
+        {
+            卡车,
+            拖拉机,
+            小车,
         }
     }
 }

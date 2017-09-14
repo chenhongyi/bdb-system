@@ -1,0 +1,43 @@
+﻿@model web.Models.Person.DriverViewModel
+@{
+    ViewData["Title"] = "车找司机信息详情";
+}
+
+@if (Model != null)
+{
+    <div class="row">
+        <dl>
+            <dt class="col-md-12 text-center" style="font-size:30px;">@Model.Title</dt>
+
+            <dt class="col-md-2">工资(元/月):</dt>
+            <dd class="col-md-10">@Model.Price</dd>
+
+            <dt class="col-md-2">需求驾龄:</dt>
+            <dd class="col-md-10">@Model.Price</dd>
+
+            <dt class="col-md-2">汽车驾照级别:</dt>
+            <dd class="col-md-10">@Model.DriverCardType</dd>
+
+            <dt class="col-md-2">拖拉机驾照级别:</dt>
+            <dd class="col-md-10">@Model.TljDriverCardType</dd>
+
+            <dt class="col-md-2">性别:</dt>
+            <dd class="col-md-10">@Model.Gender</dd>
+
+            <dt class="col-md-2">车型:</dt>
+            <dd class="col-md-10">@Model.BigCarType</dd>
+
+            <dt class="col-md-2">年龄要求(N岁以下):</dt>
+            <dd class="col-md-10">@Convert.ToInt32(DateTime.Now.Date - Model.BirthDay.Date)</dd>
+
+            <dt class="col-md-2">详情介绍:</dt>
+            <dd class="col-md-10">@Model.Desc</dd>
+
+            <dt class="col-md-2">联系人姓名:</dt>
+            <dd class="col-md-10">@Model.Name</dd>
+
+            <dt class="col-md-2">联系电话:</dt>
+            <dd class="col-md-10">@Model.Phone</dd>
+        </dl>
+    </div>
+}

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using web.Models;
 
@@ -28,5 +24,9 @@ namespace web.Data
         public virtual DbSet<ReapCarData> ReapCarData { get; set; }
         public virtual DbSet<DealCarData> DealCarData { get; set; }
         public virtual DbSet<CerealsBossData> CerealsBossData { get; set; }
+
+        public virtual DbSet<HireData> HireData { get; set; }
+        public virtual DbSet<ResumeData> ResumeData { get; set; }
+        public virtual DbSet<DriverData> DriverData { get; set; }
     }
 }

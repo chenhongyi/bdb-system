@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Senparc.Weixin.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using web.Data;
 using static web.Models.AllEnum;
 
 namespace web.Models.CerealsViewModels
@@ -39,13 +41,34 @@ namespace web.Models.CerealsViewModels
         public double CerealsCount { get; set; }
 
         /// <summary>
-        /// 需要车的数量
+        /// 预约时间
         /// </summary>
-        [Display(Name = "有多少车")] public int CarCount { get; set; }
+        [Display(Name = "装货日期")]
+        public DateTime NeedTime { get; set; }
 
-        /// <summary>
-        /// 车主还是货主
-        /// </summary>
-        public BossType BossType { get; set; }
+
+
+        public static explicit operator CerealsBossViewModel(CerealsBossData data)
+        {
+            DateTime needTime = DateTimeHelper.GetDateTimeFromXml(data.NeedTime);
+
+            DateTime joinTime = DateTimeHelper.GetDateTimeFromXml(data.JoinTime);
+
+            return new CerealsBossViewModel()
+            {
+                EndPoint = data.EndPoint,
+                NeedTime = needTime,
+                CerealsCount = data.CerealsCount,
+                CerealsType = data.CerealsType,
+                Desc = data.Desc,
+                Id = data.Id,
+                JoinTime = joinTime,
+                Name = data.Name,
+                Phone = data.Phone,
+                Price = data.Price,
+                StartPoint = data.StartPoint,
+                Title = data.Title
+            };
+        }
     }
 }

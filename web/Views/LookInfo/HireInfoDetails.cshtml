@@ -1,0 +1,49 @@
+﻿@model web.Models.Person.HireViewModel
+@{
+    ViewData["Title"] = "用工信息详情";
+}
+
+@if (Model != null)
+{
+    <div class="row">
+        <dl>
+            <dt class="col-md-12 text-center" style="font-size:30px;">@Model.Title</dt>
+
+            <dt class="col-md-2">工资(元/日):</dt>
+            <dd class="col-md-10">@Model.Price</dd>
+
+            <dt class="col-md-2">需求人数:</dt>
+            <dd class="col-md-10">@Model.PersonCount</dd>
+
+            <dt class="col-md-2">工作种类</dt>
+            <dd class="col-md-10">@Model.WorkType</dd>
+
+            <dt class="col-md-2">工作周期(几个月):</dt>
+            <dd class="col-md-10">@Model.WorkTime</dd>
+
+            <dt class="col-md-2">工作开始时间:</dt>
+            <dd class="col-md-10">@Model.StartTime.ToShortDateString()</dd>
+
+            <dt class="col-md-2">性别要求:</dt>
+            <dd class="col-md-10">@Model.GenderRequired</dd>
+
+            <dt class="col-md-2">年龄要求:</dt>
+            <dd class="col-md-10">@Model.AgeRequired</dd>
+
+            <dt class="col-md-2">工作强度:</dt>
+            <dd class="col-md-10">@Model.WorkStrong</dd>
+
+            <dt class="col-md-2">结算方式:</dt>
+            <dd class="col-md-10">@Model.PayType</dd>
+
+            <dt class="col-md-2">详情介绍:</dt>
+            <dd class="col-md-10">@Model.Desc</dd>
+
+            <dt class="col-md-2">联系人姓名:</dt>
+            <dd class="col-md-10">@Model.Name</dd>
+
+            <dt class="col-md-2">联系电话:</dt>
+            <dd class="col-md-10">@Model.Phone</dd>
+        </dl>
+    </div>
+}

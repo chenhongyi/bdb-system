@@ -1,0 +1,93 @@
+﻿@* 发布 *@
+@using static web.Models.AllEnum
+@model web.Models.Person.DriverViewModel
+
+@{
+    ViewData["Title"] = "发布车找司机信息";
+}
+
+
+<form asp-controller="IssueMsg" asp-action="FindDriver" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <h2 class="text-center">发布车找司机信息</h2>
+    <div class="form-group">
+        <label asp-for="Title" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Title" required="required" class="form-control" placeholder="请填写标题" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Gender" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select asp-for="Gender" asp-items="@Html.GetEnumSelectList<Gender>()" class="form-control"></select>
+            <span asp-validation-for="Gender" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DriverYears" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="DriverYears" required="required" class="form-control" type="number" pattern="[0-9]*" placeholder="请填写待遇(月薪)" />
+            <span asp-validation-for="DriverYears" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Price" required="required" class="form-control" type="number" pattern="[0-9]*" placeholder="请填写待遇(月薪)" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DriverCardType" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select asp-for="DriverCardType" asp-items="@Html.GetEnumSelectList<DriverCardType>()" class="form-control"></select>
+            <span asp-validation-for="DriverCardType" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TljDriverCardType" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select asp-for="TljDriverCardType" asp-items="@Html.GetEnumSelectList<TljDriverCardType>()" class="form-control"></select>
+            <span asp-validation-for="TljDriverCardType" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Desc" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <textarea asp-for="Desc" class="form-control" placeholder="请输入其他补充信息" rows="5">
+            </textarea>
+            <span asp-validation-for="Desc" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Name" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Name" required="required" class="form-control" placeholder="请输入联系人姓名" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Phone" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Phone" required="required" class="form-control" id="phone" type="tel" placeholder="请输入手机号" />
+            <span asp-validation-for="Phone" class="text-danger"></span>
+           @* <input type="button" class="btn btn-default" id="btn" value="免费获取验证码" onclick="sendCaptcha()" />*@
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" id="issue" class="btn btn-default">立即发布</button>
+        </div>
+    </div>
+</form>

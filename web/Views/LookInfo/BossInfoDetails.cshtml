@@ -1,7 +1,40 @@
-﻿
+﻿@model web.Models.CerealsViewModels.CerealsBossViewModel 
 @{
-    ViewData["Title"] = "BossInfoDetails";
+    ViewData["Title"] = "粮食货主详细信息";
 }
 
-<h2>BossInfoDetails</h2>
+@if (Model != null)
+{
+    <div class="row">
+        <dl>
+            <dt class="col-md-12 text-center" style="font-size:30px;">@Model.Title</dt>
 
+            <dt class="col-md-2">价格(元/吨):</dt>
+            <dd class="col-md-10">@Model.Price</dd>
+
+            <dt class="col-md-2">数量(吨):</dt>
+            <dd class="col-md-10">@Model.CerealsCount</dd>
+
+            <dt class="col-md-2">粮食类型</dt>
+            <dd class="col-md-10">@Model.CerealsType</dd>
+
+            <dt class="col-md-2">装货地点:</dt>
+            <dd class="col-md-10">@Model.StartPoint</dd>
+
+            <dt class="col-md-2">目的地:</dt>
+            <dd class="col-md-10">@Model.EndPoint</dd>
+
+            <dt class="col-md-2">装货日期:</dt>
+            <dd class="col-md-10">@Model.NeedTime.ToShortDateString()</dd>
+
+            <dt class="col-md-2">详情介绍:</dt>
+            <dd class="col-md-10">@Model.Desc</dd>
+
+            <dt class="col-md-2">联系人姓名:</dt>
+            <dd class="col-md-10">@Model.Name</dd>
+
+            <dt class="col-md-2">联系电话:</dt>
+            <dd class="col-md-10">@Model.Phone</dd>
+        </dl>
+    </div>
+}

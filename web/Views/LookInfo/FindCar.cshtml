@@ -1,20 +1,18 @@
-﻿@using web.Models.CerealsViewModels
-@model IEnumerable<CerealsBossViewModel>
-
-
+﻿@* 查看 *@
+@model IEnumerable<web.Models.Person.DriverViewModel>
 @{
-    ViewData["Title"] = "查看货主信息";
+    ViewData["Title"] = "司机找车信息";
 }
 
-
 <table class="table">
+
     <tbody>
         @if (Model != null)
         {
             @foreach (var m in Model)
             {
                 <tr>
-                    <td><a asp-action="BossInfoDetails" class="text-info" asp-route-id="@m.Id">@m.Title</a></td>
+                    <td><a asp-action="FindCarDetails" class="text-info" asp-route-id="@m.Id">@m.Title</a></td>
                     <td><label class="text-info">@m.JoinTime.ToString("yyyy/MM/dd hh:mm")</label></td>
                 </tr>
             }

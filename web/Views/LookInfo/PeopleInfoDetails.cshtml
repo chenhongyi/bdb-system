@@ -1,0 +1,37 @@
+﻿@model web.Models.Person.ResumeViewModel
+@{
+    ViewData["Title"] = "简历详情";
+}
+
+@if (Model != null)
+{
+    <div class="row">
+        <dl>
+            <dt class="col-md-12 text-center" style="font-size:30px;">@Model.Title</dt>
+
+            <dt class="col-md-2">姓名:</dt>
+            <dd class="col-md-10">@Model.Name</dd>
+
+            <dt class="col-md-2">年龄:</dt>
+            <dd class="col-md-10">@Convert.ToInt32(DateTime.Now.Year - Model.BirthDay.Year)</dd>
+
+            <dt class="col-md-2">性别:</dt>
+            <dd class="col-md-10">@Model.Gender</dd>
+
+            <dt class="col-md-2">籍贯:</dt>
+            <dd class="col-md-10">@Model.JiGuan</dd>
+
+            <dt class="col-md-2">所在地:</dt>
+            <dd class="col-md-10">@Model.CurPoint</dd>
+
+            <dt class="col-md-2">期望工作地点:</dt>
+            <dd class="col-md-10">@Model.WorkPoint</dd>
+
+            <dt class="col-md-2">个人简介:</dt>
+            <dd class="col-md-10">@Model.Desc</dd>
+
+            <dt class="col-md-2">联系电话:</dt>
+            <dd class="col-md-10">@Model.Phone</dd>
+        </dl>
+    </div>
+}

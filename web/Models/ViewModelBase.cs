@@ -39,5 +39,7 @@ namespace web.Models
         [Display(Name = "描述")]
         [StringLength(256, ErrorMessage = "{0}长度应该介于{2}与{1}之间", MinimumLength = 4)]
         public string Desc { get; set; }
+
+      
     }
 }

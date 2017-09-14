@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Senparc.Weixin.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using web.Models.CerealsViewModels;
 using static web.Models.AllEnum;
 
 namespace web.Data
@@ -25,18 +27,41 @@ namespace web.Data
         /// 终点
         /// </summary>
         [MaxLength(32)]
-        public string EndPoint {get;set;} = string.Empty;
+        public string EndPoint { get; set; } = string.Empty;
 
         /// <summary>
         /// 数量 多少吨
         /// </summary>
         public double CerealsCount { get; set; } = 0;
 
-        /// <summary>
-        /// 需要车的数量
-        /// </summary>
-        public int CarCount { get; set; } = 0;
 
-        public BossType BossType { get; set; } = BossType.货主;
+        /// <summary>
+        /// 预约时间
+        /// </summary>
+        public long NeedTime { get; set; }
+
+
+        public static explicit operator CerealsBossData (CerealsBossViewModel data)
+        {
+            long needTime = DateTimeHelper.GetWeixinDateTime(data.NeedTime);
+
+            long joinTime = DateTimeHelper.GetWeixinDateTime(DateTime.Now);
+
+            return new CerealsBossData()
+            {
+                EndPoint = data.EndPoint,
+                NeedTime = needTime,
+                CerealsCount = data.CerealsCount,
+                CerealsType = data.CerealsType,
+                Desc = data.Desc,
+                Id = data.Id,
+                JoinTime = joinTime,
+                Name = data.Name,
+                Phone = data.Phone,
+                Price = data.Price,
+                StartPoint = data.StartPoint,
+                Title = data.Title, 
+            };
+        }
     }
 }

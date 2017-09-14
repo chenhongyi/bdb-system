@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Senparc.Weixin.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -110,6 +111,7 @@ namespace web.Data
 
         public static explicit operator CarInfo(BigCarInfoViewModel model)
         {
+            long joinTime = DateTimeHelper.GetWeixinDateTime(DateTime.Now);
             return new CarInfo()
             {
                 Title = model.Title,
@@ -123,7 +125,8 @@ namespace web.Data
                 Name = model.Name,
                 Phone = model.Phone,
                 CarType = (CarType)model.CarTypeIn,
-                Weight = model.LoadWeightIn
+                Weight = model.LoadWeightIn,
+                JoinTime = joinTime
             };
         }
     }

@@ -8,7 +8,7 @@
 
 
 
-<form asp-controller="IssueMsg" asp-action="SendBossInfo" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+<form asp-controller="IssueMsg" asp-action="SendCerealsBossInfo" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
     <div asp-validation-summary="All" class="text-danger"></div>
 
     @*上传照片  微信传图
@@ -28,7 +28,7 @@
     <div class="form-group">
         <label asp-for="Price" class="col-md-2 control-label"></label>
         <div class="col-md-10">
-            <input asp-for="Price" required="required" class="form-control" type="number" pattern="[0-9]*" placeholder="请填写预想的价格" />
+            <input asp-for="Price" required="required" class="form-control" type="number" pattern="[0-9]*" placeholder="请填写价格(元/吨)" />
             <span asp-validation-for="Price" class="text-danger"></span>
         </div>
     </div>
@@ -36,7 +36,7 @@
     <div class="form-group">
         <label asp-for="StartPoint" class="col-md-2 control-label"></label>
         <div class="col-md-10">
-            <input asp-for="StartPoint" required="required" class="form-control" placeholder="请填写装货地点" />
+            <input asp-for="StartPoint" required="required" class="form-control" placeholder="请填写粮食装车地点" />
             <span asp-validation-for="StartPoint" class="text-danger"></span>
         </div>
     </div>
@@ -45,7 +45,7 @@
     <div class="form-group">
         <label asp-for="EndPoint" class="col-md-2 control-label"></label>
         <div class="col-md-10">
-            <input asp-for="EndPoint" required="required" class="form-control" placeholder="请填写目的地" />
+            <input asp-for="EndPoint" required="required" class="form-control" placeholder="请填写运输目的地" />
             <span asp-validation-for="EndPoint" class="text-danger"></span>
         </div>
     </div>
@@ -53,16 +53,26 @@
     <div class="form-group">
         <label asp-for="CerealsCount" class="col-md-2 control-label"></label>
         <div class="col-md-10">
-            <input asp-for="CerealsCount" required="required" class="form-control" type="number" placeholder="请填写共多少吨粮食" />
+            <input asp-for="CerealsCount" required="required" class="form-control" type="number" placeholder="请填写共多少吨粮食(单位:吨)" />
             <span asp-validation-for="CerealsCount" class="text-danger"></span>
         </div>
     </div>
+
+
 
     <div class="form-group">
         <label asp-for="CerealsType" class="col-md-2 control-label"></label>
         <div class="col-md-10">
             <select asp-for="CerealsType" asp-items="@Html.GetEnumSelectList<CerealsType>()" class="form-control"></select>
             <span asp-validation-for="CerealsType" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NeedTime" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="NeedTime" required="required" class="form-control" type="date" placeholder="请选择开始时间" />
+            <span asp-validation-for="NeedTime" class="text-danger"></span>
         </div>
     </div>
 
@@ -87,7 +97,7 @@
         <div class="col-md-10">
             <input asp-for="Phone" required="required" class="form-control" id="phone" type="tel" placeholder="请输入手机号" />
             <span asp-validation-for="Phone" class="text-danger"></span>
-            <input type="button" class="btn btn-default" id="btn" value="免费获取验证码" onclick="sendCaptcha()" />
+            @*<input type="button" class="btn btn-default" id="btn" value="免费获取验证码" onclick="sendCaptcha()" />*@
         </div>
     </div>
 
